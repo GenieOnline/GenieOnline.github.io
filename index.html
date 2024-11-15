@@ -190,6 +190,132 @@
                 margin: 10px 0;
             }
         }
+
+        .bot-cards{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .bot-card{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            cursor: pointer;
+            width: 200px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .bot-card:hover {
+            transform: scale(1.05);
+        }
+
+        .bot-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+            border: 3px solid rgba(0, 123, 255, 0.7);
+        }
+
+        .bot-info h3 {
+            margin: 10px 0 5px;
+            font-size: 1.2rem;
+        }
+
+        .status {
+            font-weight: bold;
+        }
+
+        .status.online {
+            color: green;
+        }
+
+        .status.offline {
+            color: red;
+        }
+
+        .bot-link {
+            margin-top: 10px;
+            display: inline-block;
+            background: rgba(0, 123, 255, 0.8);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .bot-link:hover {
+            background: rgba(0, 123, 255, 1);
+        }
+
+        .bot-details {
+            display: none;
+            margin-top: 10px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .bot-details.active {
+            display: block;
+        }
+
+        .bot-series {
+            margin-bottom: 30px;
+        }
+
+        .series-header {
+            background: rgba(0, 123, 255, 0.8);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            text-align: center;
+            margin-bottom: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .series-header:hover {
+            background: rgba(0, 123, 255, 1);
+        }
+
+        .series-header h3 {
+            margin: 0;
+        }
+
+        .series-content {
+            display: none;
+            padding: 10px;
+        }
+
+        .series-content.active {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .bot-card {
+            width: 200px;
+        }
+
+        .bot-details {
+            display: none;
+        }
+
+        .bot-details.active {
+            display: block;
+        }
+</style>
+
     </style>
 </head>
 <link reL = "icon" href="img/JLicon.png" type="image/png">
@@ -214,8 +340,57 @@
     <section id="content" class="content-section">
         <div id="bot-service" class="tab-content active">
             <h2>晶灵bot服务</h2>
-            <p>这是晶灵bot服务的内容展示。</p>
+            <div class="bot-series">
+                <div class="series-header" onclick="toggleSeries('xiaopu-series')">
+                    <h3>小朴系列</h3>
+                    <p>小朴系列机器人以公益性和娱乐性为核心，提供群游戏、米游帮助等功能。</p>
+                </div>
+                <div id="xiaopu-series" class="series-content">
+                    <div class="bot-card" onclick="toggleBotDetails('bot1')">
+                        <img src="img/xiaopu.jpg" alt="Bot 1" class="bot-avatar">
+                        <div class="bot-info">
+                            <h3>小朴</h3>
+                            <p>在线状态：<span class="status online">在线</span></p>
+                            <p>官方Bot</p>
+                            <a href="https://wpa.qq.com/msgrd?v=3&uin=123456789&site=qq&menu=yes" target="_blank" class="bot-link">联系QQ</a>
+                        </div>
+                    </div>
+                    <div id="bot1" class="bot-details">
+                        <p><b><big>我是小朴，喜欢你，喜欢你的每一天</big></b></p>
+                        <hr>
+                        <p>小朴是🈷杨者桃创建的公益群机器人，拥有米游帮助、群游戏等功能。</p>
+                        <p>若想使用机器人，请添加好友并拉入群聊。</p>
+                        <hr>
+                        <p><em>Powered By TRSS-Yunzai</em></p>
+                    </div>
+                </div>
+        
+                <div class="series-header" onclick="toggleSeries('zhenxun-series')">
+                    <h3>真寻系列</h3>
+                    <p>真寻系列机器人以智能对话为特色，拥有独立的对话引擎和插件测试功能。</p>
+                </div>
+                <div id="zhenxun-series" class="series-content">
+                    <div class="bot-card" onclick="toggleBotDetails('bot2')">
+                        <img src="img/zhenxun_1.jpg" alt="Bot 2" class="bot-avatar">
+                        <div class="bot-info">
+                            <h3>真寻</h3>
+                            <p>在线状态：<span class="status offline">离线</span></p>
+                            <p>传统Bot</p>
+                            <a href="https://wpa.qq.com/msgrd?v=3&uin=1954606121&site=qq&menu=yes" target="_blank" class="bot-link">联系QQ</a>
+                        </div>
+                    </div>
+                    <div id="bot2" class="bot-details">
+                        <p><b><big>我叫绪山真寻</big></b></p>
+                        <hr>
+                        <p>真寻是Jerry创建的群Bot，支持独立对话和数据库功能。</p>
+                        <p>拥有优先测试的插件和更多扩展功能。</p>
+                        <hr>
+                        <p><em>Powered By TRSS-Yunzai & zhenxun_bot</em></p>
+                    </div>
+                </div>
+            </div>
         </div>
+        
         <div id="mc-server" class="tab-content">
             <h2>雾雨MC服务器</h2>
             <p>这是雾雨MC服务器的内容展示（内容待更新）。</p>
@@ -267,6 +442,47 @@
                 targetContent.style.opacity = 1;
             }, 50);
         }
+
+        function toggleBotDetails(botId) {
+            const details = document.getElementById(botId);
+            const allDetails = document.querySelectorAll('.bot-details');
+
+            allDetails.forEach(detail => {
+                if (detail.id !== botId) {
+                    detail.classList.remove('active');
+                }
+            });
+
+            details.classList.toggle('active');
+        }
+
+        function toggleSeries(seriesId) {
+            const series = document.getElementById(seriesId);
+            const allSeries = document.querySelectorAll('.series-content');
+
+            allSeries.forEach(content => {
+                if (content.id !== seriesId) {
+                    content.classList.remove('active');
+                }
+            });
+
+            series.classList.toggle('active');
+        }
+
+        function toggleBotDetails(botId) {
+            const details = document.getElementById(botId);
+            const allDetails = document.querySelectorAll('.bot-details');
+
+            allDetails.forEach(detail => {
+                if (detail.id !== botId) {
+                    detail.classList.remove('active');
+                }
+            });
+
+            details.classList.toggle('active');
+        }
+</script>
+
     </script>
     <noscript>window.alert(抱歉，你的浏览器不支持JavaScript!)</noscript>
 </body>
