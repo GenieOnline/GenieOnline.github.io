@@ -91,7 +91,7 @@
             border-radius: 5px;
             transition: background-color 0.3s, color 0.3s;
             margin: 0 10px;
-            font-weight: bold; 
+            font-weight: bold;
         }
 
         .nav-links a:hover,
@@ -106,8 +106,8 @@
             border-radius: 10px;
             max-width: 800px;
             margin: 30px auto;
-            background: rgba(255, 255, 255, 0.8); 
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); 
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
             z-index: 2;
         }
 
@@ -153,21 +153,21 @@
         .tab-content {
             display: none;
             padding: 20px;
-            background: rgba(255, 255, 255, 0.8); 
+            background: rgba(255, 255, 255, 0.8);
             border-radius: 5px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             margin-top: 10px;
-            opacity: 0; 
-            transition: opacity 0.5s ease; 
+            opacity: 0;
+            transition: opacity 0.5s ease;
         }
 
         .tab-content.active {
             display: block;
-            opacity: 1; 
+            opacity: 1;
         }
 
         .dark-theme .tab-content p {
-            color: #000000; 
+            color: #000000;
         }
 
         @media (max-width: 600px) {
@@ -190,23 +190,144 @@
                 margin: 10px 0;
             }
         }
+
+        .bot-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .bot-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            cursor: pointer;
+            width: 200px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+
+        .bot-card:hover {
+            transform: scale(1.05);
+        }
+
+        .bot-card.active {
+            transform: scale(1.1);
+            transition: transform 0.2s ease-in;
+        }
+
+        .bot-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+            border: 3px solid rgba(0, 123, 255, 0.7);
+        }
+
+        .bot-info h3 {
+            margin: 10px 0 5px;
+            font-size: 1.2rem;
+        }
+
+        .status {
+            font-weight: bold;
+        }
+
+        .status.online {
+            color: green;
+        }
+
+        .status.offline {
+            color: red;
+        }
+
+        .bot-link {
+            margin-top: 10px;
+            display: inline-block;
+            background: rgba(0, 123, 255, 0.8);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .bot-link:hover {
+            background: rgba(0, 123, 255, 1);
+        }
+
+        .bot-details {
+            display: none;
+            margin-top: 10px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transition: opacity 0.5s ease; 
+        }
+
+        .bot-details.active {
+            display: block;
+            opacity: 1;
+        }
+
+        .bot-series {
+            margin-bottom: 30px;
+        }
+
+        .series-header {
+            background: rgba(0, 123, 255, 0.8);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            text-align: center;
+            margin-bottom: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .series-header:hover {
+            background: rgba(0, 123, 255, 1);
+        }
+
+        .series-header h3 {
+            margin: 0;
+        }
+
+        .series-content {
+            display: none;
+            padding: 10px;
+        }
+
+        .series-content.active {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
     </style>
 </head>
-<link reL = "icon" href="img/JLicon.png" type="image/png">
+<link rel="icon" href="img/JLicon.png" type="image/png">
 <body class="light-theme">
     <nav class="navbar">
         <div class="menu-icon" onclick="toggleMenu()">
             <i class="fas fa-bars"></i>
         </div>
         <div class="nav-links" id="nav-links">
-            <a href="#bot-service" title = "奇妙的机器人" onclick="showTabContent('bot-service')">晶灵bot服务</a>
-            <a href="#mc-server" title = "神奇的服务器" onclick="showTabContent('mc-server')">雾雨MC服务器</a>
-            <a href="#about" title = "服务器是怎么走到现在的" onclick="showTabContent('about')">关于</a>
-            <a href="#config" title = "看看我们每天都干了什么吧!" onclick="showTabContent('config')">日志</a>
-            <a href="#support" title = "给我们一点支持吧" onclick="showTabContent('support')">赞助和支持</a>
-            <span class="theme-toggle" title = "换个颜色" onclick="toggleTheme()">切换主题</span>
+            <a href="#bot-service" title="奇妙的机器人" onclick="showTabContent('bot-service')">晶灵bot服务</a>
+            <a href="#mc-server" title="神奇的服务器" onclick="showTabContent('mc-server')">雾雨MC服务器</a>
+            <a href="#about" title="服务器是怎么走到现在的" onclick="showTabContent('about')">关于</a>
+            <a href="#config" title="看看我们每天都干了什么吧!" onclick="showTabContent('config')">日志</a>
+            <a href="#support" title="给我们一点支持吧" onclick="showTabContent('support')">赞助和支持</a>
+            <span class="theme-toggle" title="换个颜色" onclick="toggleTheme()">切换主题</span>
             <a href="https://github.com/GenieOnline/genieonline.github.io" target="_blank">
-                <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" title = "看看我们的GitHub" alt="GitHub" style="width: 24px; vertical-align: middle;">
+                <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" title="看看我们的GitHub" alt="GitHub" style="width: 24px; vertical-align: middle;">
             </a>
         </div>
     </nav>    
@@ -214,8 +335,62 @@
     <section id="content" class="content-section">
         <div id="bot-service" class="tab-content active">
             <h2>晶灵bot服务</h2>
-            <p>这是晶灵bot服务的内容展示。</p>
+            <div class="bot-series">
+                <div class="series-header" onclick="toggleSeries('xiaopu-series')">
+                    <h3>小朴系列</h3>
+                    <p>小朴系列机器人以公益性和娱乐性为核心，提供群游戏、米游帮助等功能。</p>
+                </div>
+                <div id="xiaopu-series" class="series-content">
+                    <div class="bot-card" onclick="toggleBotDetails('bot1')">
+                        <img src="img/xiaopu.jpg" alt="Bot 1" class="bot-avatar">
+                        <div class="bot-info">
+                            <h3>小朴</h3>
+                            <p>在线状态：<span class="status offline">离线</span></p>
+                            <p>官方Bot</p>
+                            <p><b>QQ:3695765282</b></p>
+                            <a href="https://wpa.qq.com/msgrd?v=3&uin=3695765282&site=qq&menu=yes" target="_blank" class="bot-link">联系QQ</a>
+                        </div>
+                    </div>
+                    <div id="bot1" class="bot-details">
+                        <p><b><big>我是小朴，喜欢你，喜欢你的每一天</big></b></p>
+                        <hr>
+                        <p2>小朴是🈷杨者桃最早创建的以本人侄女为原型的公益群机器人<br>初衷是为给喜爱玩耍的群友们一些乐趣<br>目前拥有米游帮助、群游戏等，详情见#帮助<br>若想使用机器人，请先添加机器人为好友，而后拉入群聊<br><b>注意：如果您所拉入的群聊人数过多，机器人将会给管理发送验证请求，请求会在当天管理有空时处理，请勿频繁拉群</b></p2>
+                        <p3>机器人目前还处于开发阶段，功能还不完善，请多多包涵，如有任何问题或建议想法，请加群<b>884788970</b></p3>
+                        <hr>
+                        <p4><em>Powered By TRSS-Yunzai</a></em></p4>
+                    </div>
+                </div>
+        
+                <div class="series-header" onclick="toggleSeries('zhenxun-series')">
+                    <h3>真寻系列</h3>
+                    <p>真寻系列机器人有独立的对话引擎和数据库管理系统，插件优先测试。</p>
+                </div>
+                <div id="zhenxun-series" class="series-content">
+                    <div class="bot-card" onclick="toggleBotDetails('bot2')">
+                        <img src="img/zhenxun_1.jpg" alt="Bot 2" class="bot-avatar">
+                        <div class="bot-info">
+                            <h3>真寻</h3>
+                            <p>在线状态：<span class="status offline">离线</span></p>
+                            <p>传统Bot</p>
+                            <p><b>QQ:1954606121</b></p>
+                            <a href="https://wpa.qq.com/msgrd?v=3&uin=1954606121site=qq&menu=yes" target="_blank" class="bot-link">联系QQ</a>
+                        </div>
+                    </div>
+                    <div id="bot2" class="bot-details">
+                        <p><b><big>我叫绪山真寻</big></b></p>
+                        <p2>你们可以叫我真寻，小真寻，哪怕你们叫我小寻子我也能接受！</p2>
+                        <p3>年龄的话我还是个**岁初中生(至少现在是)</p3>
+                        <p4>我生日是在3月6号, 能记住的话我会很高兴的</p4>
+                        <p5>最好的朋友是椛！</p5>
+                        <hr>
+                        <p6>真寻bot是由Jerry创建的群bot,大体功能与小朴类似</p6>
+                        <hr>
+                        <p8><em>Powered By TRSS-Yunzai & zhenxun_bot</em></p8>
+                    </div>
+                </div>
+            </div>
         </div>
+        
         <div id="mc-server" class="tab-content">
             <h2>雾雨MC服务器</h2>
             <p>这是雾雨MC服务器的内容展示（内容待更新）。</p>
@@ -267,7 +442,42 @@
                 targetContent.style.opacity = 1;
             }, 50);
         }
+
+        function toggleBotDetails(botId) {
+            const details = document.getElementById(botId);
+            const allDetails = document.querySelectorAll('.bot-details');
+            const botCards = document.querySelectorAll('.bot-card');
+            const card = document.querySelector(`.bot-card[onclick="toggleBotDetails('${botId}')"]`);
+
+            let isActive = details.classList.contains('active');
+
+            allDetails.forEach(detail => {
+                detail.classList.remove('active');
+                detail.style.opacity = 0;
+                botCards.forEach(card => card.classList.remove('active'));
+            });
+
+            if (!isActive) {
+                details.classList.add('active');
+                details.style.opacity = 0;
+                setTimeout(() => {
+                    details.style.opacity = 1;
+                }, 50);
+                card.classList.add('active');
+            }
+        }
+
+        function toggleSeries(seriesId) {
+            const series = document.getElementById(seriesId);
+            const allSeries = document.querySelectorAll('.series-content');
+
+            allSeries.forEach(content => {
+                content.classList.remove('active');
+            });
+
+            series.classList.toggle('active');
+        }
     </script>
     <noscript>window.alert(抱歉，你的浏览器不支持JavaScript!)</noscript>
 </body>
-</html> 
+</html>
