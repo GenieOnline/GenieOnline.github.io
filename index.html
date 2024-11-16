@@ -303,13 +303,13 @@
 
         .series-content {
             display: none;
-            padding: 10px;
+            opacity: 0;
+            transition: opacity 0.5s ease;
         }
 
         .series-content.active {
             display: flex;
-            flex-direction: column;
-            align-items: center;
+            opacity: 1;
         }
     </style>
 </head>
@@ -503,10 +503,27 @@
             const allSeries = document.querySelectorAll('.series-content');
 
             allSeries.forEach(content => {
-                content.classList.remove('active');
+                if (content !== series) {
+                    if (content.classList.contains('active')) {
+                        content.classList.remove('active');
+                        setTimeout(() => {
+                            content.style.display = 'none'; // 使用定时器确保动画完成后隐藏
+                        }, 500);
+                    }
+                }
             });
 
-            series.classList.toggle('active');
+            if (series.classList.contains('active')) {
+                series.classList.remove('active');
+                setTimeout(() => {
+                    series.style.display = 'none'; 
+                }, 500);
+            } else {
+                series.style.display = 'flex'; 
+                setTimeout(() => {
+                    series.classList.add('active'); 
+                }, 0);
+            }
         }
     </script>
     <noscript>window.alert(抱歉，你的浏览器不支持JavaScript!)</noscript>
