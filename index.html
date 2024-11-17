@@ -247,6 +247,10 @@
             color: red;
         }
 
+        .status.test {
+            color: rgb(162, 237, 240);
+        }
+
         .bot-link {
             margin-top: 10px;
             display: inline-block;
@@ -342,18 +346,16 @@
                 </div>
                 <div id="xiaopu-series" class="series-content">
                     <div class="bot-cards">
-                        <!-- 小朴 -->
                         <div class="bot-card" onclick="toggleBotDetails('xiaopu')">
                             <img src="img/xiaopu.jpg" alt="xiaopu" class="bot-avatar">
                             <div class="bot-info">
                                 <h3>小朴</h3>
-                                <p>在线状态：<span class="status offline">离线</span></p>
+                                <p>在线状态：<span class="status online">在线</span></p>
                                 <p>传统Bot</p>
                                 <p><b>QQ: 3695765282</b></p>
                                 <a href="https://wpa.qq.com/msgrd?v=3&uin=3695765282&site=qq&menu=yes" target="_blank" class="bot-link">联系QQ</a>
                             </div>
                         </div>
-                        <!-- 小朴beta -->
                         <div class="bot-card" onclick="toggleBotDetails('xiaopu_beta')">
                             <img src="img/xiaopu.jpg" alt="xiaopu_beta" class="bot-avatar">
                             <div class="bot-info">
@@ -362,6 +364,16 @@
                                 <p>备用Bot</p>
                                 <p><b>QQ: 3288362446</b></p>
                                 <a href="https://wpa.qq.com/msgrd?v=3&uin=3288362446&site=qq&menu=yes" target="_blank" class="bot-link">联系QQ</a>
+                            </div>
+                        </div>
+                        <div class="bot-card" onclick="toggleBotDetails('xiaopu_test')">
+                            <img src="img/xiaopu.jpg" alt="xiaopu_test" class="bot-avatar">
+                            <div class="bot-info">
+                                <h3>小朴QQBot-test</h3>
+                                <p>在线状态：<span class="status test">内测中</span></p>
+                                <p>未正式上线，疼讯审核中</p>
+                                <p><b>QQ:3889283908</b></p>
+                                <a href="ys.mihoyou.com" target="_blank" class="bot-link">点我带走</a>
                             </div>
                         </div>
                     </div>
@@ -388,6 +400,14 @@
                         <hr>
                         <p><em>Powered By TRSS-Yunzai</em></p>
                     </div>
+                    <div class="bot-detail-wrapper" id="xiaopu_test"">
+                        <p><b><big>我是小朴QQBot,疼讯官方的机器人</big></b></p>
+                        <hr>
+                        <p>小朴QQBot是由疼讯官方认证未通过的Bot，除非机器掉线不会封号</p>
+                        <p>功能与传统小朴差别不大，仅使用时需要@机器人</p>
+                        <hr>
+                        <p><em>Powered By TRSS-Yunzai & QQOpenPlatform</em></p>
+                    </div>
                 </div>
         
                 <div class="series-header" onclick="toggleSeries('zhenxun-series')">
@@ -413,6 +433,7 @@
                         <p>年龄的话我还是个**岁初中生(至少现在是)</p>
                         <p>我生日是在3月6号, 能记住的话我会很高兴的</p>
                         <p>最好的朋友是椛！</p>
+                        <P><b>这是第一代真寻bot的账号噢！(emm手机号丢了可能账号找不回来了)</b></P>
                         <hr>
                         <p>真寻bot是由Jerry创建的群bot,大体功能与小朴类似</p>
                         <hr>
@@ -507,7 +528,7 @@
                     if (content.classList.contains('active')) {
                         content.classList.remove('active');
                         setTimeout(() => {
-                            content.style.display = 'none'; // 使用定时器确保动画完成后隐藏
+                            content.style.display = 'none';
                         }, 500);
                     }
                 }
