@@ -274,7 +274,7 @@
             border-radius: 5px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             opacity: 0;
-            transition: opacity 0.5s ease; 
+            transition: opacity 0.5s; 
         }
 
         .bot-detail-wrapper.active {
@@ -308,12 +308,55 @@
         .series-content {
             display: none;
             opacity: 0;
-            transition: opacity 0.5s ease;
+            transition: opacity 0.5s;
         }
 
         .series-content.active {
             display: flex;
             opacity: 1;
+        }
+
+        /* 新增的样式 */
+        .developer-list {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .developer-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .developer-card:hover {
+            transform: scale(1.05);
+        }
+
+        .developer-card .avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        .contact-info {
+            display: none;
+            position: absolute;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            z-index: 10;
+        }
+
+        .contact-info.active {
+            display: block;
         }
     </style>
 </head>
@@ -532,10 +575,44 @@
             <h2>雾雨MC服务器</h2>
             <p>这是雾雨MC服务器的内容展示（内容待更新）。</p>
         </div>
+
         <div id="about" class="tab-content">
-            <h2>关于</h2>
-            <p>这是关于的内容展示（内容待更新）。</p>
+            <h2>晶灵机房</h2>
+            <img src="img/JLicon.png" alt="机房" style="width:100%; max-width:800px; border-radius:10px; margin-bottom:20px;">
+            <p>我们机房从G41起步，历经演变，现搭载多路系统及全千兆互联。用户从站长及数人增至众多开发者，消息量更达百万级。</p>
+            <h3>开发者及机房成员</h3>
+            <div class="developer-list">
+                <div class="developer-card" onclick="showContact('dev1')">
+                    <img src="img/yueyang.jpg" alt="yueyang" class="avatar">
+                    <h4>阅杨者桃</h4>
+                    <div class="contact-info" id="dev1">
+                        <p>联系方式：QQ:2669238636</p>
+                    </div>
+                </div>
+                <div class="developer-card" onclick="showContact('dev2')">
+                    <img src="img/jerry.jpg" alt="Jerry" class="avatar">
+                    <h4>Jerry</h4>
+                    <div class="contact-info" id="dev2">
+                        <p>联系方式：QQ:3479445703</p>
+                    </div>
+                </div>
+                <div class="developer-card" onclick="showContact('dev3')">
+                    <img src="img/smallnorth.png" alt="smallnorth" class="avatar">
+                    <h4>东南西北的北</h4>
+                    <div class="contact-info" id="dev3">
+                        <p>联系方式：QQ:1753510961</p>
+                    </div>
+                </div>
+            </div>
+            <h3>联系我们</h3>
+            <ul>
+                <li>晶灵机房公益云崽机器人附属学校 - 884788970</li>
+                <li>我们自己的世界(雾雨服务器群组） - 518680610</li>
+                <li>一个普通的清朝老裙 - 535051991</li>
+                <li>鳀咓铽叆熴の胕檵釼甞 - 707499227</li>
+            </ul>
         </div>
+
         <div id="support" class="tab-content">
             <h2>赞助和支持</h2>
             <p>这是赞助和支持的内容展示（内容待更新）。</p>
@@ -630,6 +707,11 @@
                     series.classList.add('active'); 
                 }, 0);
             }
+        }
+
+        function showContact(devId) {
+            const contact = document.getElementById(devId);
+            contact.classList.toggle('active');
         }
     </script>
     <noscript>window.alert(抱歉，你的浏览器不支持JavaScript!)</noscript>
