@@ -5,360 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>晶灵在线</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            margin: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Roboto, Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft Yahei", "Microsoft Jhenghei", sans-serif;
-            min-height: 100vh;
-            overflow-x: hidden;
-            transition: background-color 0.3s, color 0.3s, background-image 0.3s;
-            position: relative;
-        }
-
-        .light-theme {
-            background-color: #f0f0f0;
-            color: #333;
-            background-image: url('https://t.mwm.moe/pc');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-
-        .dark-theme {
-            background-color: #181818;
-            color: #333;
-            background-image: url('https://t.mwm.moe/mp');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-
-        body::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0.5;
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        .light-theme::before {
-            background-color: rgba(255, 255, 255, 0.5);
-        }
-
-        .dark-theme::before {
-            background-color: rgba(0, 0, 0, 0.5);
-        }
-
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: rgba(0, 123, 255, 0.7);
-            padding: 15px 30px;
-            color: white;
-            transition: background-color 0.3s;
-            position: relative;
-            z-index: 2;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-        }
-
-        .navbar .menu-icon {
-            cursor: pointer;
-            font-size: 24px;
-            display: none;
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            transition: max-height 0.3s ease, opacity 0.3s ease;
-            overflow: hidden;
-        }
-
-        .nav-links a,
-        .theme-toggle {
-            color: inherit;
-            text-decoration: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            transition: background-color 0.3s, color 0.3s;
-            margin: 0 10px;
-            font-weight: bold;
-        }
-
-        .nav-links a:hover,
-        .theme-toggle:hover {
-            background-color: rgba(0, 86, 179, 0.7);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        }
-
-        .content-section {
-            padding: 40px;
-            text-align: center;
-            border-radius: 10px;
-            max-width: 800px;
-            margin: 30px auto;
-            background: rgba(255, 255, 255, 0.8);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-            z-index: 2;
-        }
-
-        .tabs {
-            display: flex;
-            justify-content: center;
-            margin: 20px 0;
-        }
-
-        .tab {
-            position: relative;
-            padding: 15px 30px;
-            margin: 5px;
-            background-color: rgba(0, 123, 255, 0.5);
-            color: white;
-            border-radius: 5px;
-            cursor: pointer;
-            overflow: hidden;
-            transition: background-color 0.3s;
-        }
-
-        .tab:hover {
-            background-color: rgba(0, 123, 255, 0.7);
-        }
-
-        .tab::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(255, 255, 255, 0.5);
-            opacity: 0;
-            transition: opacity 0.3s;
-            z-index: 1;
-        }
-
-        .tab:hover::before {
-            opacity: 1;
-        }
-
-        .tab-content {
-            display: none;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.8);
-            border-radius: 5px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            margin-top: 10px;
-            opacity: 0;
-            transition: opacity 0.5s ease;
-        }
-
-        .tab-content.active {
-            display: block;
-            opacity: 1;
-        }
-
-        .dark-theme .tab-content p {
-            color: #000000;
-        }
-
-        @media (max-width: 600px) {
-            .navbar .menu-icon {
-                display: block;
-            }
-
-            .nav-links {
-                max-height: 0;
-                opacity: 0;
-                transition: max-height 0.3s ease, opacity 0.3s ease;
-            }
-
-            .nav-links.active {
-                max-height: 300px;
-                opacity: 1;
-            }
-
-            .nav-links a {
-                margin: 10px 0;
-            }
-        }
-
-        .bot-cards {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        .bot-card {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-            padding: 20px;
-            cursor: pointer;
-            width: 200px;
-            text-align: center;
-            transition: transform 0.3s ease;
-            position: relative;
-        }
-
-        .bot-card:hover {
-            transform: scale(1.05);
-        }
-
-        .bot-card.active {
-            transform: scale(1.1);
-            transition: transform 0.2s ease-in;
-        }
-
-        .bot-avatar {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            margin-bottom: 15px;
-            border: 3px solid rgba(0, 123, 255, 0.7);
-        }
-
-        .bot-info h3 {
-            margin: 10px 0 5px;
-            font-size: 1.2rem;
-        }
-
-        .status {
-            font-weight: bold;
-        }
-
-        .status.online {
-            color: green;
-        }
-
-        .status.offline {
-            color: red;
-        }
-
-        .status.test {
-            color: rgb(162, 237, 240);
-        }
-
-        .bot-link {
-            margin-top: 10px;
-            display: inline-block;
-            background: rgba(0, 123, 255, 0.8);
-            color: white;
-            padding: 5px 10px;
-            border-radius: 5px;
-            text-decoration: none;
-            transition: background-color 0.3s ease;
-        }
-
-        .bot-link:hover {
-            background: rgba(0, 123, 255, 1);
-        }
-
-        .bot-detail-wrapper {
-            display: none;
-            margin-top: 20px;
-            padding: 15px;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 5px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            opacity: 0;
-            transition: opacity 0.5s; 
-        }
-
-        .bot-detail-wrapper.active {
-            display: block;
-            opacity: 1;
-        }
-
-        .bot-series {
-            margin-bottom: 30px;
-        }
-
-        .series-header {
-            background: rgba(0, 123, 255, 0.8);
-            color: white;
-            padding: 20px;
-            border-radius: 10px;
-            cursor: pointer;
-            text-align: center;
-            margin-bottom: 10px;
-            transition: background-color 0.3s;
-        }
-
-        .series-header:hover {
-            background: rgba(0, 123, 255, 1);
-        }
-
-        .series-header h3 {
-            margin: 0;
-        }
-
-        .series-content {
-            display: none;
-            opacity: 0;
-            transition: opacity 0.5s;
-        }
-
-        .series-content.active {
-            display: flex;
-            opacity: 1;
-        }
-
-        /* 新增的样式 */
-        .developer-list {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin-top: 20px;
-        }
-
-        .developer-card {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            cursor: pointer;
-            text-align: center;
-            transition: transform 0.3s ease;
-        }
-
-        .developer-card:hover {
-            transform: scale(1.05);
-        }
-
-        .developer-card .avatar {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            margin-bottom: 10px;
-        }
-
-        .contact-info {
-            display: none;
-            position: absolute;
-            background: rgba(255, 255, 255, 0.9);
-            padding: 10px;
-            border-radius: 5px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-            z-index: 10;
-        }
-
-        .contact-info.active {
-            display: block;
-        }
-    </style>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src = "./js/showContent.js" defer></script>
+    <script src = "./js/toggleTheme.js" defer></script>
+    <script src = "./js/toggleSeries.js" defer></script>
+    <script src = "./js/toggleBotDetails.js" defer></script>
+    <script src = "./js/toggleMenu.js" defer></script>
+    <script src = "./js/showTabContent.js" defer></script>
 </head>
 <link rel="icon" href="img/JLicon.png" type="image/png">
 <body class="light-theme">
@@ -547,7 +200,7 @@
                         <hr>
                         <p>小小北是从真寻中延申出来的一只bot,使用的是zhenxun的引擎</p>
                         <p>凡是真寻有的功能，小小北都有噢！</p>
-                        <p>小小北非常稳定，从来没被封过号<del>除了上次大大北让小小北戳别人100下被疼讯封了30day</del>噢！</p>
+                        <p>小小北非常稳定，从来没被封过号<del>除了上次大大北让小小北戳别人114514下被疼讯封了30day</del>噢！</p>
                         <hr>
                         <p><em>Powered By TRSS-Yunzai & zhenxun_bot</em></p>
                     </div>
@@ -578,9 +231,9 @@
 
         <div id="about" class="tab-content">
             <h2>晶灵机房</h2>
-            <img src="img/JLicon.png" alt="机房" style="width:100%; max-width:800px; border-radius:10px; margin-bottom:20px;">
+            <img src="img/jifang.jpg" alt="机房" style="width:100%; max-width:800px; border-radius:10px; margin-bottom:20px;">
             <p>我们机房从G41起步，历经演变，现搭载多路系统及全千兆互联。用户从站长及数人增至众多开发者，消息量更达百万级。</p>
-            <h3>开发者及机房成员</h3>
+            <h3>机房核心成员</h3>
             <div class="developer-list">
                 <div class="developer-card" onclick="showContact('dev1')">
                     <img src="img/yueyang.jpg" alt="yueyang" class="avatar">
@@ -604,12 +257,34 @@
                     </div>
                 </div>
             </div>
+            <h3>开发者</h3>
+            <div class="developer-list">
+                <div class="developer-card" onclick="showContact('dev4')">
+                    <img src="img/kesally.jpg" alt="kesally" class="avatar">
+                    <h4>Kesally</h4>
+                    <div class="contact-info" id="dev4">
+                        <p>联系方式：QQ:2770706493</p>
+                    </div>
+                </div>
+                <div class="developer-card" onclick="showContact('dev5')">
+                    <img src="img/ppt.jpg" alt="summerPPT" class="avatar">
+                    <h4>镍铬氕氘氚</h4>
+                    <div class="contact-info" id="dev5">
+                        <p>联系方式：QQ:260070509</p>
+                    </div>
+                </div>
+                <div class="developer-card" onclick="showContact('dev6')">
+                    <img src="img/y68.jpg" alt="y68" class="avatar">
+                    <h4>y68</h4>
+                    <div class="contact-info" id="dev6">
+                        <p>联系方式：QQ:3023340183</p>
+                    </div>
+                </div>
+            </div>
             <h3>联系我们</h3>
             <ul>
                 <li>晶灵机房公益云崽机器人附属学校 - 884788970</li>
                 <li>我们自己的世界(雾雨服务器群组） - 518680610</li>
-                <li>一个普通的清朝老裙 - 535051991</li>
-                <li>鳀咓铽叆熴の胕檵釼甞 - 707499227</li>
             </ul>
         </div>
 
@@ -626,93 +301,6 @@
     <script>
         const darkBackgroundImage = new Image();
         darkBackgroundImage.src = 'https://t.mwm.moe/mp';
-
-        function toggleMenu() {
-            const navLinks = document.getElementById('nav-links');
-            navLinks.classList.toggle('active');
-        }
-
-        function toggleTheme() {
-            const body = document.body;
-            const isDark = body.classList.toggle('dark-theme');
-            body.classList.toggle('light-theme');
-
-            body.style.transition = 'background-image 0.3s';
-            body.style.backgroundImage = isDark ? "url('https://t.mwm.moe/mp')" : "url('https://t.mwm.moe/pc')";
-        }
-
-        function showTabContent(tabId) {
-            const contents = document.querySelectorAll('.tab-content');
-            const targetContent = document.getElementById(tabId);
-
-            contents.forEach(content => {
-                content.classList.remove('active');
-                content.style.opacity = 0;
-            });
-
-            targetContent.classList.add('active');
-
-            setTimeout(() => {
-                targetContent.style.opacity = 1;
-            }, 50);
-        }
-
-        function toggleBotDetails(botId) {
-            const details = document.getElementById(botId);
-            const allDetails = document.querySelectorAll('.bot-detail-wrapper');
-            const botCards = document.querySelectorAll('.bot-card');
-            const card = document.querySelector(`.bot-card[onclick="toggleBotDetails('${botId}')"]`);
-
-            let isActive = details.classList.contains('active');
-
-            allDetails.forEach(detail => {
-                detail.classList.remove('active');
-                detail.style.opacity = 0;
-                botCards.forEach(card => card.classList.remove('active'));
-            });
-
-            if (!isActive) {
-                details.classList.add('active');
-                details.style.opacity = 0;
-                setTimeout(() => {
-                    details.style.opacity = 1;
-                }, 50);
-                card.classList.add('active');
-            }
-        }
-
-        function toggleSeries(seriesId) {
-            const series = document.getElementById(seriesId);
-            const allSeries = document.querySelectorAll('.series-content');
-
-            allSeries.forEach(content => {
-                if (content !== series) {
-                    if (content.classList.contains('active')) {
-                        content.classList.remove('active');
-                        setTimeout(() => {
-                            content.style.display = 'none';
-                        }, 500);
-                    }
-                }
-            });
-
-            if (series.classList.contains('active')) {
-                series.classList.remove('active');
-                setTimeout(() => {
-                    series.style.display = 'none'; 
-                }, 500);
-            } else {
-                series.style.display = 'flex'; 
-                setTimeout(() => {
-                    series.classList.add('active'); 
-                }, 0);
-            }
-        }
-
-        function showContact(devId) {
-            const contact = document.getElementById(devId);
-            contact.classList.toggle('active');
-        }
     </script>
     <noscript>window.alert(抱歉，你的浏览器不支持JavaScript!)</noscript>
 </body>
