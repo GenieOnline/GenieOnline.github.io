@@ -351,4 +351,44 @@ body::before {
     display: block;
 }
 
+#mc-server img{
+    width: 100%;
+    height: auto;
+}
+
+#mc-server ul{
+    text-align: left;
+}
+
+pre {
+    background-color: #f5f5f5;
+    padding: 15px;
+    border-radius: 5px;
+    overflow-x: auto;
+    max-width: 100%;
+    font-family: "Courier New", Courier, monospace;
+    margin-bottom: 10px;
+}
+
+.copy-btn {
+    display: inline-block;
+    margin-top: 5px;
+    text-align: center;
+}
+
+button {
+    padding: 8px 15px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+
 </style>
