@@ -1,6 +1,6 @@
 # 晶灵机房 (Genie Machine Room)
 
-[![QQ Group](https://img.shields.io/badge/QQ%20Group-Join%20Us-blue?logo=tencent-qq&style=for-the-badge)]([https://jq.qq.com/?_wv=1027&k=your_qq_group_link](http://res.abeim.cn/api-qq.qun?qun=884788970))
+[![QQ Group](https://img.shields.io/badge/QQ%20Group-Join%20Us-blue?logo=tencent-qq&style=for-the-badge)](http://res.abeim.cn/api-qq.qun?qun=884788970)
 [![Website](https://img.shields.io/badge/Website-GenieOnline.github.io-brightgreen?logo=github&style=for-the-badge)](https://GenieOnline.github.io)
 ## 项目简介
 
