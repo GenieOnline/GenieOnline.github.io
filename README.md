@@ -1,8 +1,7 @@
 # 晶灵机房 (Genie Machine Room)
 
-![QQ Group](https://img.shields.io/badge/QQ%20Group-Join%20Us-blue?logo=tencent-qq&style=for-the-badge&link=http://res.abeim.cn/api-qq.qun?qun=884788970)
-![Website](https://img.shields.io/badge/Website-GenieOnline.github.io-brightgreen?logo=github&style=for-the-badge&link=https://GenieOnline.github.io)
-
+[![QQ Group](https://img.shields.io/badge/QQ%20Group-Join%20Us-blue?logo=tencent-qq&style=for-the-badge)]([https://jq.qq.com/?_wv=1027&k=your_qq_group_link](http://res.abeim.cn/api-qq.qun?qun=884788970))
+[![Website](https://img.shields.io/badge/Website-GenieOnline.github.io-brightgreen?logo=github&style=for-the-badge)](https://GenieOnline.github.io)
 ## 项目简介
 
 晶灵机房始于 G41，经过不断演变和升级，如今搭载了多路系统及全千兆互联。我们服务的用户从初期的站长及少数开发者扩展至众多开发者，信息处理量已突破千万级。
