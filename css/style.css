@@ -73,6 +73,8 @@ body::before {
     align-items: center;
     transition: max-height 0.3s ease, opacity 0.3s ease;
     overflow: hidden;
+    position: absolute;
+    z-index: 1000;
 }
 
 .nav-links a,
@@ -162,7 +164,7 @@ body::before {
     color: #000000;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     .navbar .menu-icon {
         display: block;
     }
@@ -180,6 +182,18 @@ body::before {
 
     .nav-links a {
         margin: 10px 0;
+    }
+
+    body{
+        font-size: 0.9rem;
+    }
+
+    h2{
+        font-size: 1.2rem;
+    }
+
+    ul li{
+        font-size: 0.85rem;
     }
 }
 
@@ -308,7 +322,6 @@ body::before {
     opacity: 1;
 }
 
-/* 新增的样式 */
 .developer-list {
     display: flex;
     justify-content: center;
@@ -370,6 +383,16 @@ pre {
     margin-bottom: 10px;
 }
 
+pre#code-block {
+    overflow-x: auto;
+    font-size: 0.85rem;
+    white-space: pre-wrap;
+    max-width: 100%;
+    background-color: #f8f9fa;
+    padding: 8px;
+    border-raphius: 5px;
+}
+
 .copy-btn {
     display: inline-block;
     margin-top: 5px;
@@ -390,5 +413,63 @@ button:hover {
     background-color: #45a049;
 }
 
+.card{
+    padding:8px;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .card{
+        flex: 0 0 100%;
+        margin-bottom: 16px;
+    }
+}
+
+@media (max-width: 768px){
+    #nav-links{
+        position: fixed;
+        top: -100%;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.9);
+        color: #333;
+        transition: top 0.5s ease;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        overflow: hidden;
+    }
+
+    #nav-links.active{
+        top: 0;
+    }
+
+    .menu-icon{
+        display: block;
+        color: white;
+        cursor: pointer;
+        font-size: 2.5rem;
+        margin-right: 16px;
+    }
+}
+
+#menu-overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    display: none;
+}
+
+#menu-overlay.active{
+    display: block;
+}
 
 </style>
