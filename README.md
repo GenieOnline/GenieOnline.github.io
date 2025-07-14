@@ -40,6 +40,7 @@
 
 - 了解更多服务或获取支持，请加入我们的 [QQ 群](http://res.abeim.cn/api-qq.qun?qun=884788970)
 - 群号:*884788970*
-- 浏览我们的官方网站：[GenieOnline.github.io](https://GenieOnline.github.io)
+- 加入我们的社区：[晶灵社区](https://lab.crystelf.top)
+- 浏览我们的私有Gitea:[gitea](https://git.crystelf.top)
 
 我们期待您的参与！
